@@ -60,6 +60,30 @@ public class EX {
 	{
 		System.out.println("(1).이름");
 		String sca = sc.next();
+		boolean chN = false;
+		if(is != null)
+		{
+			for(BookEx d : is)
+			{
+				if(d.getName().equals(sca))
+				{
+					while(!chN)
+					{
+						System.out.println("다시 입력하세요.");
+						System.out.println(sca + " : ");
+						System.out.println("(1).이름");
+						String csca = sc.next();
+						if(!d.getName().equals(csca))
+						{
+							sca = csca;
+							chN = true;
+						}
+						else
+							continue;
+					}
+				}
+			}
+		}
 		System.out.println("(2).지은");
 		String sca1 = sc.next();
 		System.out.println("(3).출판");
@@ -68,7 +92,34 @@ public class EX {
 		String sca3 = sc.next();
 		System.out.println("(5).책번호");
 		int sca4 = sc.nextInt();
+
 		is.add(SetBook(sca,sca1,sca2,sca3,sca4));
+		
+		
+//		if(bookInfo != null)
+//		{
+//			String checkName = GetBookName(bookInfo, sca4);
+//			if(checkName != null)
+//			{
+//				System.out.println("다시 입력하세요.");
+//				System.out.println("(1).이름");
+//				String csca = sc.next();
+//				System.out.println("(2).지은");
+//				String csca1 = sc.next();
+//				System.out.println("(3).출판");
+//				String csca2 = sc.next();
+//				System.out.println("(4).출판일");
+//				String csca3 = sc.next();
+//				System.out.println("(5).책번호");
+//				int csca4 = sc.nextInt();
+//				is.add(SetBook(csca,csca1,csca2,csca3,csca4));
+//			}
+//			else
+//				is.add(SetBook(sca,sca1,sca2,sca3,sca4));
+//
+//		}
+//		else
+//			is.add(SetBook(sca,sca1,sca2,sca3,sca4));
 	}
 	
 	private BookEx SetBook(String name, String author, String company, String day, int num)
@@ -130,6 +181,10 @@ public class EX {
 				System.out.println("4.출판일 : " + li.getDay());
 				System.out.println("5.책번호 : " + li.getNum());
 			}
+		}
+		else
+		{
+			System.out.println("조회하신 번호가 없습니다.");
 		}
 	}
 	
@@ -203,7 +258,7 @@ public class EX {
 //			++count;
 //			System.out.println(count + "." + name + " ");
 //		}
-		System.out.println("삭제 하실 도서 번호를 입력하세요");
+		System.out.println("삭제 하실 도서 번호를 입력하세요.");
 		int num = sc.nextInt();
 		String bookName = GetBookName(bookInfo, num);
 		for(BookEx li : is)
@@ -212,6 +267,7 @@ public class EX {
 			{
 				is.remove(li);
 				bookInfo.remove(num);
+				System.out.println("삭제가 완료되었습니다");
 				break;
 			}
 		}
