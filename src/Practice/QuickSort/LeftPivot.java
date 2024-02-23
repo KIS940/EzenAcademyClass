@@ -1,4 +1,4 @@
-package QuickSort;
+package Practice.QuickSort;
 
 public class LeftPivot {
 	public static void sort(int[] a)

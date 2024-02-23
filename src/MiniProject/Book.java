@@ -1,12 +1,12 @@
 package MiniProject;
 
-public class BookEx {
+public class Book {
 	   String name; 
 	   String author;
 	   String company;
 	   String day;
 	   int num;
-	   public BookEx(String name, String author, String company, String day, int num) {
+	   public Book(String name, String author, String company, String day, int num) {
 	      this.name = name;
 	      this.author = author;
 	      this.company = company;

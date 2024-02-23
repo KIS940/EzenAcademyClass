@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EX {
-    public List<BookEx> is = new ArrayList<BookEx>();
-	public HashMap<Integer, String> bookInfo = new HashMap<Integer, String>();
- 	public Scanner sc = new Scanner(System.in);
+    private List<Book> is = new ArrayList<Book>();
+    private HashMap<Integer, String> bookInfo = new HashMap<Integer, String>();
+    private Scanner sc = new Scanner(System.in);
  	
 	public static void main(String[] args) {
 		EX ex = new EX();
@@ -63,7 +63,7 @@ public class EX {
 		boolean chN = false;
 		if(is != null)
 		{
-			for(BookEx d : is)
+			for(Book d : is)
 			{
 				if(d.getName().equals(sca))
 				{
@@ -122,16 +122,16 @@ public class EX {
 //			is.add(SetBook(sca,sca1,sca2,sca3,sca4));
 	}
 	
-	private BookEx SetBook(String name, String author, String company, String day, int num)
+	private Book SetBook(String name, String author, String company, String day, int num)
 	{
-		BookEx book = new BookEx(name,author,company,day,num);
+		Book book = new Book(name,author,company,day,num);
 		return book;
 	}
 	
 	private void ListUpBook()
 	{
 		int count = 0;
-		for(BookEx li : is)
+		for(Book li : is)
 		{
 			++count;
 			System.out.println("[" + count + ". ]" + li.getName());
@@ -140,7 +140,7 @@ public class EX {
 	
 	private void SetBookInfo()
 	{
-		for(BookEx li : is)
+		for(Book li : is)
 		{
 			int num = li.num;
 			String name = li.name;
@@ -153,10 +153,10 @@ public class EX {
 		return bookInfo.get(num);
 	}
 	
-	private List<BookEx> GetBookData(List<BookEx> books, String bookName)
+	private List<Book> GetBookData(List<Book> books, String bookName)
 	{
-		List<BookEx> li= new ArrayList<>();
-		for (BookEx book : books) {
+		List<Book> li= new ArrayList<>();
+		for (Book book : books) {
             if (book.name.equals(bookName)) {
                 li.add(book);
             }
@@ -171,8 +171,8 @@ public class EX {
 		String bookName = GetBookName(bookInfo, num);
 		if(bookName != null)
 		{			
-			List<BookEx> book = GetBookData(is, bookName);
-			for(BookEx li : book)
+			List<Book> book = GetBookData(is, bookName);
+			for(Book li : book)
 			{
 				System.out.println("선택하신 책 정보");
 				System.out.println("1.책 이름 : " + li.getName());
@@ -195,9 +195,9 @@ public class EX {
 		String bookName = GetBookName(bookInfo, num);
 		if(bookName != null)
 		{
-			List<BookEx> book = GetBookData(is, bookName);
-			BookEx bookData = null;
-			for(BookEx li : book)
+			List<Book> book = GetBookData(is, bookName);
+			Book bookData = null;
+			for(Book li : book)
 			{
 				System.out.println("수정 하실 정보 번호를 입력하세요");
 				System.out.println("1.책 이름 : " + li.getName());
@@ -261,7 +261,7 @@ public class EX {
 		System.out.println("삭제 하실 도서 번호를 입력하세요.");
 		int num = sc.nextInt();
 		String bookName = GetBookName(bookInfo, num);
-		for(BookEx li : is)
+		for(Book li : is)
 		{
 			if(li.getName().equals(bookName))
 			{
