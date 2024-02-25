@@ -9,7 +9,7 @@ public class Order{
 	private List<MenuItem> _menus = new ArrayList<>();
 	private Scanner sc = new Scanner(System.in);
 	
-	public List<MenuItem> menus = new ArrayList<>();
+	public List<MenuItem> menus = _menus;
 	
 	public void SetMenu(String menuName, int menuPrice, int menuCount)
 	{

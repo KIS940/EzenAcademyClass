@@ -8,7 +8,7 @@ public class Main {
 	private Scanner scanner = new Scanner(System.in);
 	private boolean isMenuSetting = false;
 	private boolean isSameName = false;
-	private boolean isCheckMenuSetting = false;
+//	private boolean isCheckMenuSetting = false;
 
 	public static void main(String[] args) {
 		Main main = new Main();
@@ -21,7 +21,7 @@ public class Main {
 		{
 			System.out.println("메뉴판을 설정해주세요.");
 			System.out.println("1.메뉴 이름");
-			String name = scanner.nextLine();
+			String name = scanner.next();
 			if(order.menus != null)
 			{
 				for(MenuItem menu : order.menus)
@@ -32,7 +32,7 @@ public class Main {
 						{
 							System.out.println("중복된 메뉴 이름이 있습니다, 다시 입력하세요.");
 							String name2 = scanner.next();
-							if(menu.getFoodName().equals(name2))
+							if(!menu.getFoodName().equals(name2))
 							{
 								name = name2;
 								isSameName = true;
@@ -49,12 +49,12 @@ public class Main {
 			order.SetMenu(name, price, count);
 
 			System.out.println("메뉴판을 더 설정하시겠습까? Y/N");
-			String text = scanner.nextLine();
-
+			String text = scanner.next();
+			CheckMenu(text);
 		}
 	}
 
-	private boolean CheckMenu(String text)
+	private void CheckMenu(String text)
 	{
 		if(text.equals("n") || text.equals("N"))
 		{
@@ -63,6 +63,7 @@ public class Main {
 		}
 		else if(text.equals("y") || text.equals("Y"))
 		{
+			isMenuSetting = false;
 		}
 	}
 
