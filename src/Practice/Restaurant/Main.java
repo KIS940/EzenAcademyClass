@@ -1,11 +1,15 @@
 package Practice.Restaurant;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	private Order order = new Order();
 	private Scanner scanner = new Scanner(System.in);
+	private HashMap<Integer, String> storeFood = new HashMap<Integer, String>();
+
 	private boolean isMenuSetting = false;
 	private boolean isSameName = false;
 //	private boolean isCheckMenuSetting = false;
@@ -69,7 +73,48 @@ public class Main {
 
 	private void ShowMenu()
 	{
-
+		System.out.println("메뉴를 선택하고 카트에 담아주세요");
+		int count = 0;
+		for(MenuItem menu : order.menus)
+		{
+			++count;
+			System.out.println(count + ". " + menu.getFoodName());
+			storeFood.put(count, menu.getFoodName());
+		}
+		int choice = scanner.nextInt();
+		if(storeFood.get(choice) != null)
+		{
+			List<MenuItem> choiceMenu = FindFoodInfo(order.menus, storeFood.get(choice));
+			for(MenuItem menu : choiceMenu)
+			{
+				System.out.println("선택하신 메뉴는 " + menu.getFoodName() + " 입니다.");
+				System.out.println("선택하신 메뉴 가격은 " + menu.getFoodPrice() + " 입니다");
+				System.out.println("선택하신 메뉴 재고는 " + menu.getFoodCount() + " 입니다");
+				System.out.println("선택하신 메뉴를 카트에 담으시겠습니까? Y/N");
+				String text = scanner.next();
+				if(text.equals("n") || text.equals("N"))
+				{
+					System.out.println(".");
+				}
+				else if(text.equals("y") || text.equals("Y"))
+				{
+					System.out.println("카트에 담겼습니다.");
+				}
+			}
+		}
+		else
+		{
+			System.out.println("선택하신 메뉴가 없습니다.");
+		}
 	}
-
+	private List<MenuItem> FindFoodInfo(List<MenuItem> menuItemList, String name)
+	{
+		List<MenuItem> menuItems = new ArrayList<>();
+		for(MenuItem menu : menuItemList)
+		{
+			if(menu.getFoodName().equals(name))
+				menuItems.add(menu);
+		}
+		return menuItems;
+	}
 }
