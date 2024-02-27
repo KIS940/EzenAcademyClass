@@ -17,7 +17,7 @@ public class Library {
       // list.add(book);
 
       boolean run = true;
-
+      
       while (run) {
          System.out.println("===============================================");
          System.out.println("도 서 관 리 시 스 템 ");
@@ -88,7 +88,7 @@ public class Library {
    private void SetBookInfo() { // 등록된 리스트중 이름과 번호를 해시맵에 넣어줌
       for (Book li : list) { 
          int num = li.num;
-         String name = li.name;
+         String name = li.getName();
          bookInfo.put(num, name);
       }
    }
@@ -100,7 +100,7 @@ public class Library {
    private List<Book> GetBookData(List<Book> books, String bookName) { // 벨류값을 통해 등록해 두었던 리스트에서 찾기
       List<Book> li = new ArrayList<>();
       for (Book book : books) {
-         if (book.name.equals(bookName)) {
+         if (book.getName().equals(bookName)) {
             li.add(book);
          }
       }
@@ -136,6 +136,7 @@ public class Library {
             System.out.println("출판사: " + list.get(i).getCompany());
             System.out.println("출판일: " + list.get(i).getDay());
             System.out.println("=======================================\n");
+            
          }
          break;
       }

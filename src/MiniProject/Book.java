@@ -1,7 +1,8 @@
 package MiniProject;
 
 public class Book {
-	   String name; 
+	   private String name;
+	   public String name2 = name;
 	   String author;
 	   String company;
 	   String day;

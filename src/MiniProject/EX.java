@@ -12,7 +12,6 @@ public class EX {
  	
 	public static void main(String[] args) {
 		EX ex = new EX();
-
 		boolean flag = false;
 		while(!flag)
 		{
@@ -143,7 +142,7 @@ public class EX {
 		for(Book li : is)
 		{
 			int num = li.num;
-			String name = li.name;
+			String name = li.getName();
 			bookInfo.put(num, name);
 		}
 	}
@@ -157,7 +156,7 @@ public class EX {
 	{
 		List<Book> li= new ArrayList<>();
 		for (Book book : books) {
-            if (book.name.equals(bookName)) {
+            if (book.getName().equals(bookName)) {
                 li.add(book);
             }
         }
