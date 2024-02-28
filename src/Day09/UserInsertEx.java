@@ -22,7 +22,7 @@ public class UserInsertEx {
 
 			// PreparedStatement 얻기 및 값 지정
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "winter");
+			pstmt.setString(1, "winter6");
 			pstmt.setString(2, "한겨울");
 			pstmt.setString(3, "12345");
 			pstmt.setInt(4, 25);
