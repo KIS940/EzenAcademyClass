@@ -1,7 +1,7 @@
 package Practice.Restaurant;
 
 public class MenuItem {
-//음식 메뉴를 나타내는 클래스로, 이름, 가격, 재고 수량 등의 속성을 가집니다.
+// 메뉴아이템 설정을 위한 클래스로, 이름, 가격, 재고 수량 등의 속성을 가집니다.
 	String foodName;
 	int foodPrice;
 	int foodCount;

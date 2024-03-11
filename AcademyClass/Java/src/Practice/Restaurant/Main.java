@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-	private Order order = new Order();
+	private Menus menus = new Menus();
 	private Scanner scanner = new Scanner(System.in);
 	private HashMap<Integer, String> storeFood = new HashMap<Integer, String>();
 
@@ -16,19 +16,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		Main main = new Main();
-		main.SettingMenu();
+		main.settingMenu();
 	}
 
-	private void SettingMenu()
+	private void settingMenu()
 	{
 		while(!isMenuSetting)
 		{
 			System.out.println("메뉴판을 설정해주세요.");
 			System.out.println("1.메뉴 이름");
 			String name = scanner.next();
-			if(order.menus != null)
+			if(menus.getMenu() != null)
 			{
-				for(MenuItem menu : order.menus)
+				for(MenuItem menu : menus.getMenu())
 				{
 					if(menu.getFoodName().equals(name))
 					{
@@ -50,15 +50,15 @@ public class Main {
 			System.out.println("3.메뉴 재고 수량");
 			int count = scanner.nextInt();
 
-			order.SetMenu(name, price, count);
+			menus.setMenu(name, price, count);
 
 			System.out.println("메뉴판을 더 설정하시겠습까? Y/N");
 			String text = scanner.next();
-			CheckMenu(text);
+			checkMenu(text);
 		}
 	}
 
-	private void CheckMenu(String text)
+	private void checkMenu(String text)
 	{
 		if(text.equals("n") || text.equals("N"))
 		{
@@ -71,11 +71,11 @@ public class Main {
 		}
 	}
 
-	private void ShowMenu()
+	private void showMenu()
 	{
 		System.out.println("메뉴를 선택하고 카트에 담아주세요");
 		int count = 0;
-		for(MenuItem menu : order.menus)
+		for(MenuItem menu : menus.getMenu())
 		{
 			++count;
 			System.out.println(count + ". " + menu.getFoodName());
@@ -84,7 +84,7 @@ public class Main {
 		int choice = scanner.nextInt();
 		if(storeFood.get(choice) != null)
 		{
-			List<MenuItem> choiceMenu = FindFoodInfo(order.menus, storeFood.get(choice));
+			List<MenuItem> choiceMenu = findFoodInfo(menus.getMenu(), storeFood.get(choice));
 			for(MenuItem menu : choiceMenu)
 			{
 				System.out.println("선택하신 메뉴는 " + menu.getFoodName() + " 입니다.");
@@ -107,7 +107,7 @@ public class Main {
 			System.out.println("선택하신 메뉴가 없습니다.");
 		}
 	}
-	private List<MenuItem> FindFoodInfo(List<MenuItem> menuItemList, String name)
+	private List<MenuItem> findFoodInfo(List<MenuItem> menuItemList, String name)
 	{
 		List<MenuItem> menuItems = new ArrayList<>();
 		for(MenuItem menu : menuItemList)
