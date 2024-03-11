@@ -1,3 +1,4 @@
+package generixExample;
 import java.lang.annotation.*;
 
 @Deprecated

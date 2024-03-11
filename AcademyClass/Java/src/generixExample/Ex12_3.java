@@ -1,3 +1,4 @@
+package generixExample;
 import java.util.ArrayList;
 
 class Fruit implements Eatable {

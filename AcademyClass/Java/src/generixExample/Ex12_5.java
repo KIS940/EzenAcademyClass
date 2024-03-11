@@ -1,3 +1,4 @@
+package generixExample;
 enum Direction { EAST, SOUTH, WEST, NORTH }
 
 class Ex12_5 {
