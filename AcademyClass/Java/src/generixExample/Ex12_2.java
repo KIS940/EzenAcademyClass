@@ -1,3 +1,4 @@
+package generixExample;
 import java.util.*;
 
 class Ex12_2 {

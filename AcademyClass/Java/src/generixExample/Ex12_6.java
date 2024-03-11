@@ -1,3 +1,4 @@
+package generixExample;
 enum Direction2 { 
 	EAST(1, ">"), SOUTH(2,"V"), WEST(3, "<"), NORTH(4,"^");
 

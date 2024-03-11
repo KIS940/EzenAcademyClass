@@ -1,4 +1,6 @@
-import java.util.*;
+package generixExample;
+import java.util.ArrayList;
+
 
 class Product {}
 class Tv extends Product {}
