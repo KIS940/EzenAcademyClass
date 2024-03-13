@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Layout with Flexbox</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* 요소를 수직으로 가운데 정렬 */
+      align-items: center; /* 요소를 수평으로 가운데 정렬 */
+      height: 100vh; /* 뷰포트 높이에 따라 컨테이너 높이 설정 */
+    }
+    .item {
+      margin-bottom: 20px; /* 아이템 간격 조절 */
+      background-color: #f0f0f0;
+      padding: 20px; /* 패딩을 사용하여 아이템 내부 공간 조절 */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="item">첫 번째 아이템</div>
+  <div class="item">두 번째 아이템</div>
+  <div class="item">세 번째 아이템</div>
+</div>
+
+</body>
+</html>
