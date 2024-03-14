@@ -1,0 +1,193 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "맑은 고딕", "돋움";
+  font-size: 12px;
+  color: #444444;
+}
+
+ul{
+  list-style-type:none;
+}
+.clear{
+  clear: both;
+}
+
+#page{
+  width: 980px;
+  margin:0 auto;
+  height: 1000px;
+}
+
+/* header */
+header #logo{
+  float: left;
+  margin: 15px 0 0 20px;
+}
+header #moto{
+  float: left;
+  margin: 45px 0 0 20px;
+}
+header #top_menu{
+  float: right;
+  margin: 50px 0 0 0;
+}
+header #top_menu li{
+  display: inline;
+}
+
+.line{
+  margin-top: 25px;
+  border-top: solid 1px #cccccc;
+}
+
+header nav ul{
+  margin-top: 25px;
+}
+header nav li{
+  display: inline;
+}
+header nav li.item{
+  margin-left: 40px;
+}
+
+/* section(banner) */
+main{
+  margin-top: 10px;
+}
+#banner{
+  height: 110px;
+  background-color: #00a8ab;
+}
+#banner ul{
+  margin-top: 5px;
+}
+#banner li{
+  display: inline;
+  margin-left: 28px;
+}
+
+/* article */
+#customer{
+  width: 300px;
+  height: 111px;
+  float: left;
+  margin-top: 20px;
+}
+#customer .title{
+  margin-left: 10px;
+  float: left;
+}
+#customer .more{
+  float: right;
+}
+#customer .phone{
+  margin-left: 10px;
+}
+
+#notice{
+  width: 300px;
+  height: 111px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+#notice .title{
+  margin-left: 10px;
+  float: left;
+}
+#notice .more{
+  float: right;
+}
+#notice ul{
+  margin-top: 12px;
+  color:#666666
+}
+#notice li{
+  margin-top: 5px;
+}
+#notice .subject{
+  float: left;
+  margin-left: 10px;
+}
+#notice .date{
+  float: right;
+  margin-right: 5px;
+}
+#faq{
+  width: 300px;
+  height: 111px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.line{
+  margin-top: 25px;
+  border-top: solid 1px #cccccc;
+}
+
+/* section(sitemap) */
+#sitemap{
+  padding: 20px 0 0 15px;
+}
+#sitemap div{
+  height: 140px;
+  float:left; 
+  margin:0 15px 0 15px;
+}
+#sitemap h3{
+  font-size: 15px;
+  color: #12b9b2;
+  margin-left: 16px;
+}
+#sitemap ul{
+  color: #666666;
+}
+#sitemap li{
+  margin: 5px 0 0 20px;
+  list-style-image: url("img/blue_dot.gif");
+}
+
+/* footer */
+footer{
+  padding: 20px 0 0 15px;
+  border-top: solid 3px #06b5b8;
+  color: #666666;
+}
+footer #address{
+  float: left;
+}
+footer #link{
+  float: right;
+}
+footer #footer_menu li{
+  margin-top: 5px;
+}
+footer #company_info{
+  margin-top: 20px;
+}
+footer #company_info li{
+  margin-top: 2px;
+}
+footer #copyright{
+  margin-top: 10px;
+  font-size: 11px;
+  color: #888888;
+}
+footer #link h3{
+  font-size: 16px;
+  color: #06b5b8;
+}
+footer #link select{
+  margin: 5px 0 0 50px;
+  width: 100px;
+  height: 18px;
+  font-size: 11px;
+}
+footer #icons{
+  margin-top: 5px;
+  text-align: right;
+}

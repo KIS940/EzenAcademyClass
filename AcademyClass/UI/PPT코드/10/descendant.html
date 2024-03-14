@@ -21,6 +21,12 @@
    section p {  /* section 요소의 모든 하위 p 요소에 적용 */
       color:blue;   /* 글자색을 파란색으로 */
     }
+    div > p:first-child{
+      color: black;
+    }
+    div > p:first-of-type{
+      color:green
+    }
   </style>
 </head>
 <body>
