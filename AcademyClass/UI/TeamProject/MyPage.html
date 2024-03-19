@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAXGA</title>
+  <link rel="stylesheet" href="css/MyPaga.css">
+  <script src="https://kit.fontawesome.com/1e9b513c90.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+    </header>
+    <div id="myPaga_main">
+        <h3 id="myPagaText">마이 페이지</h3>
+        <div id="contents">
+          <aside id="side">
+            <ul>
+              <li><a href="images/default_profile.png"></a></li>
+              <li><p>프로필 정보 수정</p></li>
+              <li><p>나의 작성글</p></li>
+              <li><p>저장 목록</p></li>
+              <li><p>나의 베스트 게시글</p></li>
+            </ul>
+          </aside>
+          <section id="content">
+            <!-- todo : top부분 컨텐츠 보여질 영역 작업해야됨 임시로 한개만함 -->
+            <div id="top">
+              <div id="modifyProfile">
+                <div id="profileImage">
+                  <img src="images/default_profile.png" alt="프로필 이미지">
+                  <button>프로필 사진 변경</button>
+                </div>
+                <!-- 프로필정보 수정부분에서 보여지는부분 하고 수정시 어떻게 보일지 생각필요 우선 임시로 작업 -->
+                <div id="profileInfo">
+                  <form action="">
+                    <ul>
+                      <li>
+                        <label for="nickName">닉네임</label>
+                        <span>NickName</span>
+                        <input type="text" name="nickName" id="" value="아이디를 입력하세요 (4~12글자)" maxlength="12" minlength="4">
+                        <button><i class="fa-solid fa-pen"></i></button>
+                      </li>
+                      <li>
+                        <label for="phoneNumber">전화번호</label>
+                        <span>010-0000-0000</span>
+                        <input type="text" name="" id="">
+                        <button><i class="fa-solid fa-pen"></i></button>
+                      </li>
+                      <li>
+                        <label for="address">주소</label>
+                        <span>xx시 xx구 xx동</span>
+                        <input type="text" name="" id="">
+                        <button><i class="fa-solid fa-pen"></i></button>
+                      </li>
+                      <li>
+                        <label for="email">이메일</label>
+                        <span>abcdefg@gmail.com</span>
+                        <input type="email" name="" id="">
+                        <button><i class="fa-solid fa-pen"></i></button>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+              </div>
+              <div id="myWrited"></div>
+              <div id="saveList"></div>
+              <div id="receiveLike"></div>
+            </div>
+            <div id="middle">
+              <div class="gaga">
+                <i class="fa-solid fa-circle"></i>
+                <h4>가보자고</h4>
+                <p><i class="fa-regular fa-thumbs-up"></i>10</p>
+                <div class="recentWriting">
+                  <div class="first">
+                    <span>춘천 - 남이섬</span>
+                    <span>2024-03-16</span>
+                  </div>
+                  <div class="second">
+                    <span>춘천 - 남이섬</span>
+                    <span>2024-03-16</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gaga">
+                <i class="fa-solid fa-circle"></i>
+                <h4>가봤다고</h4>
+                <p><i class="fa-regular fa-heart"></i>10</p>
+                <div class="recentWriting">
+                  <div class="first">
+                    <span>춘천 - 남이섬</span>
+                    <span>2024-03-16</span>
+                  </div>
+                  <div class="second">
+                    <span>춘천 - 남이섬</span>
+                    <span>2024-03-16</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="bottom">
+              <div id="firstEvent"class="Event">
+                <img src="images/gift.jpg" alt="">
+                <span>13xx</span>
+              </div>
+              <div id="secondEvent"class="Event">
+                <img src="images/gift.jpg" alt="">
+                <span>13xx</span>
+              </div>
+              <div id="thirdEvent" class="Event">
+                <img src="images/gift.jpg" alt="">
+                <span>13xx</span>
+              </div>
+            </div>
+          </section>
+        </div>
+    </div>
+
+  </div>
+</body>
+</html>
