@@ -1,15 +1,185 @@
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/TeamProject/fonts/GmarketSansTTFBold.ttf') format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/TeamProject/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/TeamProject/fonts/GmarketSansTTFLight.ttf') format('truetype');
+  font-weight: 400;
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* 
-#container{
-
-} */
 
 #header{
   width: 100%;
   height: 100px;
   background-color: black;
+}
+
+#myPage_main #title{
+  width: 100%;
+  height: 150px;
+  text-align: center;
+}
+
+#myPage_main #title h3{
+  width: 400px;
+  height: 150px;
+  margin:0 auto;
+  line-height: 150px;
+  font-size: 28px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
+}
+
+#myPage_main #contents{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #DAE9E7;
+  display: flex;
+}
+/* 왼쪽영역 */
+#myPage_main #leftContent{
+  float: left;
+  width: 576px;
+  background-color: white;
+}
+
+#myPage_main #leftContent ul{
+  width: 460px;
+  margin: 0 auto;
+}
+
+#myPage_main #leftContent ul li{
+  list-style: none;
+}
+
+#myPage_main #leftContent ul li img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#myPage_main #leftContent ul li:first-child{
+  height: 300px;
+}
+#myPage_main #leftContent ul li:not(:first-child){
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
+}
+/* 오른쪽영역 */
+#myPage_main #rightContent{
+  float: left;
+  width: 1240px;
+  margin-left: 104px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#myPage_main #rightContent .content{
+  height: 270px;
+  margin: 0 auto;
+}
+
+#myPage_main #rightContent .selectedArea{
+  width: 100%;
+  height: 270px;
+}
+/* 오른쪽 3개중 top 부분 프로필 수정 */
+#myPage_main #rightContent #profileImage{
+  width: 620px;
+  height: 270px;
+  float: left;
+  display: flex;
+}
+
+#myPage_main #rightContent #profileImage img{
+  width: 500px;
+  height: 100%;
+  object-fit: contain;
+}
+#myPage_main #rightContent #profileImage button{
+  width: 120px;
+  height: 100%;
+  border: none;
+}
+
+#myPage_main #rightContent #profileInfo{
+  width: 620px;
+  height: 270px;
+  float: left;
+}
+
+#myPage_main #rightContent #profileInfo ul li{
+  list-style: none;
+  height: 67.5px;
+  line-height: 67.5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+#myPage_main #rightContent #profileInfo ul li label{
+  width: 25%;
+}
+#myPage_main #rightContent #profileInfo ul li span{
+  width: 50%;
+}
+#myPage_main #rightContent #profileInfo ul li button{
+  width: 25%;
+  border: none;
+  background-color: white;
+}
+/* 임시로 지워둠 수정버튼시 어떻게 보일지 생각 후 수정 */
+#myPage_main #rightContent #profileInfo ul li input{
+  display: none;
+}
+
+/* 오른쪽 3개중 middle 부분 프로필 수정 */
+#myPage_main #rightContent #middle{
+  display: flex;
+  width: 100%;
+}
+#myPage_main #rightContent #middle .gaga{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+/* 오른쪽 3개중 bottom 부분 프로필 수정 */
+#myPage_main #rightContent #bottom{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+#myPage_main #rightContent #bottom .event{
+  display: flex;
+  height: 33.3%;
+}
+
+#myPage_main #rightContent #bottom .event img{
+  width: 50%;
+  height: 100%;
+}
+#myPage_main #rightContent #bottom .event span{
+  width: 50%;
+  text-align: center;
 }

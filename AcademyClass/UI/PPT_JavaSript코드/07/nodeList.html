@@ -11,5 +11,20 @@
   <p>HTML</p>
   <p>CSS</p>
   <p>Javascript</p>
+
+  <button id="add">과목추가</button>
+  <div id="result"></div>
 </body>
+<script>
+  let newP = document.createElement("p");
+  let textNode = document.createTextNode("Python");
+  let add = document.querySelector("#add");
+  let result = document.querySelector("#result");
+  add.addEventListener("click", function(){
+    newP.appendChild(textNode);
+    newP.style.fontSize = "8em";
+    newP.style.color ="blue";
+    result.appendChild(newP);
+  });
+</script>
 </html>
