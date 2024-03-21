@@ -1,0 +1,79 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header{
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
+#login_main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#login_main #top{
+  height: 230px;
+}
+
+#login_main #top h2{
+  font-size: 40px;
+  margin-top: 95px;
+  font-family: 'Jalnan';
+}
+
+#login_main #middle{
+  height: 480px;
+  border: 1px solid;
+  border-radius: 5%;
+}
+
+#login_main #middle #login_form{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  width: 550px;
+}
+
+#login_main #middle #login_area{
+  height: 90px;
+  margin-top: 58px;
+}
+#login_main #middle #login_area div{
+  height: 50%;
+  display: flex;
+}
+#login_main #middle #login_area div i{
+  font-size: 40px;
+  text-align: center;
+  width: 20%;
+}
+#login_main #middle #login_area div input{
+  width: 70%;
+  margin-left: 10px;
+}
+
+#login_main #middle label{
+  height: 25px;
+  width: 550px;
+  margin-left: 40px;
+}
+#login_main #middle #btn{
+  height: 85px;
+  width: 470px;
+}
+#login_main #middle #findInfo{
+  height: 60px;
+  width: 550px;
+}
+
+#login_main #bottom{
+  height: 230px;
+  width: 550px;
+}
