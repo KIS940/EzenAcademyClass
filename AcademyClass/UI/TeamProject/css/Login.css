@@ -15,6 +15,8 @@
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
 }
 
 #login_main #top{
@@ -28,7 +30,7 @@
 }
 
 #login_main #middle{
-  height: 480px;
+  height: 400;
   border: 1px solid;
   border-radius: 5%;
 }
@@ -38,12 +40,14 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  width: 550px;
+  width: 500px;
+  align-items: center;
 }
 
 #login_main #middle #login_area{
   height: 90px;
   margin-top: 58px;
+  width: 80%;
 }
 #login_main #middle #login_area div{
   height: 50%;
@@ -57,23 +61,75 @@
 #login_main #middle #login_area div input{
   width: 70%;
   margin-left: 10px;
+  border: none;
+  font-size: 20px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
 }
 
 #login_main #middle label{
   height: 25px;
-  width: 550px;
-  margin-left: 40px;
+  width: 100%;
+  padding-left: 80px;
 }
 #login_main #middle #btn{
   height: 85px;
   width: 470px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
 }
 #login_main #middle #findInfo{
   height: 60px;
-  width: 550px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#login_main #middle #findInfo .line{
+  background-color: black;
+  width: 1px;
+  height: 40px;
+}
+#login_main #middle #findInfo input{
+  height: 40px;
+  line-height: 30px;
+  font-size: 12px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-family: 'GmarketSans';
+  font-weight: 600;
 }
 
 #login_main #bottom{
   height: 230px;
-  width: 550px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#login_main #bottom #agreement{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  font-size: 12px;
+  height: 20%;
+  align-items: center;
+}
+#login_main #bottom #agreement span{
+  width: 33%;
+}
+#login_main #bottom #agreement span:not(:last-child){
+  border-right: 1px solid black;
+}
+#login_main #bottom #info{
+  height: 20%;
+  font-family: 'GmarketSans';
+  font-weight: 500;
+  font-size: 12px;
+}
+#login_main #bottom #info b{
+  font-size: 20px;
+  font-family: 'GmarketSans';
+  font-weight: 600;
 }

@@ -19,11 +19,11 @@
           <div id="login_area">
             <div id="id_area">
               <i class="fa-solid fa-user"></i>
-              <input type="text" name="userId" placeholder="아이디를 입력하세요.">
+              <input type="text" name="userId" placeholder="아이디를 입력하세요." maxlength="12">
             </div>
             <div id="password_area">
               <i class="fa-solid fa-unlock"></i>
-              <input type="password" name="userPassword" placeholder="비밀번호를 입력하세요.">
+              <input type="password" name="userPassword" placeholder="비밀번호를 입력하세요." maxlength="12">
             </div>
           </div>
           <label for="saveId">
@@ -32,7 +32,9 @@
           <input type="submit" value="Login" id="btn">
           <div id="findInfo">
             <input type="button" value="아이디 찾기">
+            <div class="line"></div>
             <input type="button" value="비밀번호 찾기">
+            <div class="line"></div>
             <input type="button" value="회원 가입">
           </div>
         </form>
