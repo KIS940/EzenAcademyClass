@@ -8,14 +8,13 @@
     </tr>
     </thead>
     <tbody>
-    {{#articleList}}
+    {{#member}}
         <tr>
             <th>{{id}}</th>
-            <td><a href="/articles/{{id}}/edit">{{title}}</a></td>
-            <td>{{content}}</td>
+            <td>{{email}}</td>
+            <td>{{password}}</td>
         </tr>
-    {{/articleList}}
+    {{/member}}
     </tbody>
 </table>
-<a href="/articles/new">New Article</a>
 {{>layouts/footer}}
