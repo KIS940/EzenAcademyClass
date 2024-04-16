@@ -7,14 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity
+@Entity(name = "comment_list")
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "comment_sq")
+    @SequenceGenerator(name = "comment_sq", sequenceName = "comment_sq", initialValue = 1, allocationSize = 1)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "article_id")
