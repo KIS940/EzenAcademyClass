@@ -1,0 +1,19 @@
+package org.example.repository;
+
+import org.example.domain.Item;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Repository
+public class ItemRepository {
+    private final Map<Long, Item> store = new HashMap<>();
+    private long sequence = 0L;
+    public Item save(Item item){
+        item.setId(++sequence);
+        store.put(item.getId(), item);
+        return item;
+    }
+    public Item findById(long id){return store.get(id);}
+}
