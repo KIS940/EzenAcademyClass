@@ -53,23 +53,26 @@ public class ItemController {
     @GetMapping("/{id}")
     public String items (@PathVariable Long id, Model model){
         model.addAttribute("item", itemRepository.findById(id));
+        log.info("===========id:"+id + "========"+model.toString());
         return "item/itemView";
     }
 
     @ResponseBody
     @GetMapping("/images/{filename}")
     public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
-        return new UrlResource("file: " + fileStore.getFullPath(filename));
+        log.info("file:" + fileStore.getFullPath(filename));
+        return new UrlResource("file:" + fileStore.getFullPath(filename));
     }
 
     @GetMapping("/attach/{itemId}")
     public ResponseEntity<Resource> downloadAttach (@PathVariable Long itemId) throws MalformedURLException {
+        log.info("=======itemId:"+itemId);
         Item item = itemRepository.findById(itemId);
         String storeFileName = item.getAttachFile().getStoreFileName();
         String uploadFileName = item.getAttachFile().getUploadFileName();
         UrlResource resource = new UrlResource("file:" + fileStore.getFullPath(storeFileName));
-        log.info("uploadFileName: {}", uploadFileName);
-        log.info("storeFileName: {}", storeFileName);
+        log.info("====uploadFileName: {}", uploadFileName);
+        log.info("====storeFileName: {}", storeFileName);
 
         String encodedUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8);
         String contentDisposition="attachment; filename=\"" + encodedUploadFileName + "\"";
