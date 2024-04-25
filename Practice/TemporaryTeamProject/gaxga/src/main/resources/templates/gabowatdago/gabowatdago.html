@@ -1,0 +1,70 @@
+<div th:include="layouts/header"></div>
+<link rel="stylesheet" th:href="@{/css/gabowatdago.css}">
+
+    <div class="intro">
+      <div class="left">
+        <div class="pagename">가봤다고</div>
+        <div class="thema">
+          <a href="">
+            <span>산</span>
+          </a>
+          <div id="border1"> </div>
+          <a href="" id = "text1">
+            <span>시장</span>
+          </a>
+          <div id="border2"> </div>
+          <a href="" id = "text2">
+            <span>테마파크</span>
+          </a>
+          <div id="border3"> </div>
+          <a href="" id = "text3">
+            <span>카페</span>
+          </a>
+          <div id="border4"> </div>
+          <a href="">
+            <span>문화</span>
+          </a>
+        </div>
+      </div>
+      <div class="center">
+        <button class="prev-btn" onclick="prevCategory()">&lang;&nbsp;</button>
+        <div class="cate" id="cate">
+          <div class="list">강원</div>
+          <div class="list">서울</div>
+          <div class="list">인천</div>
+          <div class="list">충북</div>
+          <div class="list">충남</div>
+          <div class="list">경북</div>
+          <div class="list">경남</div>
+          <div class="list">제주</div>
+        </div>
+        <button class="next-btn" onclick="nextCategory()">&nbsp;&rang;</button>
+      </div>
+      <div class="right">
+          <div style="display: flex; flex-direction: column" >
+        <input type="search" placeholder="search" autocomplete="on">
+        <button type="button" style="margin-left: 20px; width: 15%; height: 30; margin-top: 10px"
+                onclick="window.location.href='/gabowatdago/gabowatdagoing_p'"> 새 글 쓰기</button>
+          </div>
+        <!-- <ul hidden style="list-style: none"></ul>
+        <div id="result"></div> -->
+      </div>
+    </div>
+    <div class="subject">
+      <div class="left">
+        <a th:href="@{/gabowatdago/id}" th:each="name :${gabowatdagoList}">
+<!--        <span style="display: none" th:text:="${name.id}"></span>-->
+          <span th:text="${name.local}"></span>
+          <div></div>
+          <span th:text="${name.tema}"></span>
+          <div></div>
+          <span th:text="${name.title}"></span>
+        </a>
+      </div>
+      <div class="right"><img id="image" src="../img/loc/강원/강원-갈미조개.jpg" alt=""></div>
+    </div>
+    <script th:src="@{/js/GAXGA.js}"></script>
+    <script th:src="@{/js/carousel.js}"></script>
+    <script th:src="@{/js/menu2.js}"></script>
+  </body>
+  </html>

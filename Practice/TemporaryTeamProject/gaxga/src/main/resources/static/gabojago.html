@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="KO" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가보자고</title>
+  <link rel="stylesheet" href="../css/gabojago.css">
+  <link rel="stylesheet" href="../css/Fonts.css">
+  <link rel="stylesheet" href="../css/menupage.css">
+  <link rel="stylesheet" href="../css/header.css">
+</head>
+<body>
+  <header class = "mainP" id="mainPColor">
+    <div id="profile" class="element">
+      <a href="loginPage.html">
+        <img src="../img/profile.png" width=45px height=45px  alt="프로필">
+      </a>
+    </div>
+  <div id="logo" class="element" width= 45px height=45px>
+    <h1><a href="main.html">GAXGA</a></h1>
+  </div>
+
+  <div class="element" id="elementMenu">
+    <button id="menutap" onclick="activeTab()" >MENU</button>
+    <div id="menuTapPage">
+      <div class="menuPage">
+        <div class="companyContents">
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><a href="main.html">HOME</a></li>
+                <li><a href="gabojago.html">가보자고</a></li>
+                <li><a href="gabowatdago.html">가봤다고</a></li>
+                <li><a href="event.html">EVENT</a></li>
+                <li><a href="myPage.html">MY PAGE</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div id="rightContent">
+            <div id="companyInfo">
+              <span>(주)GAXGA | 대표 : 김인선</span> <br>
+              <span>고객센터 031.9941.0082 | 팩스 02.9941.0082</span> <br>
+              <span>주소 : 경기도 안산시 상록구 광덕1로 375 <br>
+              강우프라자 5층 이젠컴퓨터아카데미 안산캠퍼스</span>
+            </div>
+            <div id="socialShare">
+              <img src="../img/snsImg.png" alt="소셜공유">
+            </div>
+          </div>
+        </div>
+        <div id="policy">
+          <ul>
+            <li><a href="#">이용약관   |</a></li>
+            <li><a href="#">   개인정보처리방침   |</a></li>
+            <li><a href="#">   고객센터</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="intro">
+      <div class="left">
+        <div class="pagename">가보자고</div>
+        <div class="thema">
+          <a href="">
+            <span>산</span>
+          </a>
+          <div id="border"> </div>
+          <a href="" id = "text1">
+            <span>시장</span>
+          </a>
+          <div id="border"> </div>
+          <a href="" id = "text1">
+            <span>테마파크</span>
+          </a>
+          <div id="border"> </div>
+          <a href="" id = "text1">
+            <span>카페</span>
+          </a>
+          <div id="border"> </div>
+          <a href="">
+            <span>문화</span>
+          </a>
+        </div>
+      </div>
+      <div class="center">
+        <button class="prev-btn" onclick="prevCategory()">&lang;&nbsp;</button>
+        <div class="cate" id="cate">
+          <div class="list">지역</div>
+          <div class="list">강원</div>
+          <div class="list">경기</div>
+          <div class="list">경남</div>
+          <div class="list">경북</div>
+          <div class="list">광주</div>
+          <div class="list">대구</div>
+          <div class="list">대전</div>
+          <div class="list">부산</div>
+          <div class="list">서울</div>
+          <div class="list">세종</div>
+          <div class="list">울산</div>
+          <div class="list">인천</div>
+          <div class="list">전남</div>
+          <div class="list">전북</div>
+          <div class="list">제주</div>
+          <div class="list">충남</div>
+          <div class="list">충북</div>
+        </div>
+        <button class="next-btn" onclick="nextCategory()">&nbsp;&rang;</button>
+      </div>
+      <div class="right">
+        <input type="search" placeholder="search" autocomplete="on">
+        <!-- <ul hidden style="list-style: none"></ul>
+        <div id="result"></div> -->
+      </div>
+    </div>
+    <div class="subject">
+      <div class="left">
+        <a href="" id = "text0">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text2">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+          </a>
+        <a href="" id = "text3">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text4">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text5">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text6">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text7">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text8">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text9">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text10">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text11">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text12">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text13">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text14">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text15">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text16">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text17">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text18">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text19">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text20">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text21">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text22">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text23">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text24">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+        <a href="" id = "text25">
+          <span>서울</span>
+          <div id="border"></div>
+          <span>산</span>
+          <div id="border"></div>
+          <span> 도봉산</span>
+        </a>
+      </div>
+      <div class="right"><img id="image" src="../img/loc/강원/강원-BTS버스정류장.jpg" alt=""></div>
+    </div>
+    <script src="../js/GAXGA.js"></script>
+    <script src="../js/menu2.js"></script>
+    <script src="../js/carousel.js"></script>
+  </body>
+  </html>
