@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let employees =[
+      {
+        id: 001,
+        name: "Tommy",
+        age: 23,
+        city : "New York",
+      },
+      {
+        id: 002,
+        name: "Mike",
+        age: 27,
+        city : "Detroit",
+      },
+      {
+        id: 003,
+        name: "Lisa",
+        age: 25,
+        city : "Chiccago",
+      },
+    ];
+    let names = employees.map((employees) =>{
+      return employees.name;
+    });
+    document.write(names);
+  </script>
+</body>
+</html>

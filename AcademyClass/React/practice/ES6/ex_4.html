@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function func1(name){
+      document.write("Hello " + name);
+    };
+    func1("dog");
+    document.write("<br>");
+    const func2 = (name2)=>{
+      document.write("Hello " + name2);
+    };
+    func2("cat");
+    document.write("<br>");
+    // 함수에 매개변수가 하나라면 괄호도 생략
+    const func3 = name3 => document.write("H1 " + name3);
+    func3("dino"); 
+  </script>
+</body>
+</html>

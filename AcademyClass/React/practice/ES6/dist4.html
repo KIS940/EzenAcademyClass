@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 구조화는 함수가 배열을 반환할 때 유용
+    // 구조 분해 할당 구문은 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식
+    function calculate(a,b){
+      const add = a+b;
+      const subtract = a-b;
+      const multiply = a*b;
+      const divide = a/b;
+      return [add, subtract, multiply, divide];
+    }
+    const [add, subtract, multiply, divide] = calculate(4,7);
+    document.write("<p>Sum: " + add + "</p>");
+    document.write("<p>Difference: " + subtract + "</p>");
+    document.write("<p>Product: " + multiply + "</p>");
+    document.write("<p>Quotient: " + divide + "</p>");
+
+  </script>
+</body>
+</html>
