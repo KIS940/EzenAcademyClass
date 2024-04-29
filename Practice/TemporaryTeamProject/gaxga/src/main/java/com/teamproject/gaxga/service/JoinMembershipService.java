@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Service
 public class JoinMembershipService {
@@ -16,12 +19,12 @@ public class JoinMembershipService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private UserRepository userRepository;
-    public void joinPutData(JoinMembershipForm joinMembershipForm) {
+    public boolean joinPutData(JoinMembershipForm joinMembershipForm) {
 
         // todo : 회원가입시 특수문자 방지
         boolean isUser = userRepository.existsByGaId(joinMembershipForm.getGaId());
         if (isUser) {
-            return;
+            return false;
         }
         User data = new User();
 
@@ -35,5 +38,11 @@ public class JoinMembershipService {
         // todo : 나중에 프로필이미지 디폴트로 넣기
         data.setGaP_Image(joinMembershipForm.getGaP_Image());
         userRepository.save(data);
+        return true;
+    }
+
+    public JoinMembershipForm findUserInfo() {
+        User data = userRepository.findByGaId();
+        List<JoinMembershipForm> userInfoList = new ArrayList<>();
     }
 }

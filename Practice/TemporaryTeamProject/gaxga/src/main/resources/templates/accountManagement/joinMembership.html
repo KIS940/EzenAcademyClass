@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,9 @@
             <a th:href="@{/main.html}"><h2>GA X GA</h2></a>
         </div>
         <div id="content">
+            <div th:if="${message}" class="alert alert-danger" role="alert">
+                <p th:text="${message}"></p>
+            </div>
             <h3>Sign Up</h3>
             <form action="/joinMembership/create" method="post">
                 <div id="form_content">
