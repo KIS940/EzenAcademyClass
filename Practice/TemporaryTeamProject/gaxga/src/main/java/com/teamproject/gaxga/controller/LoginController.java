@@ -23,8 +23,8 @@ public class LoginController {
         return "accountManagement/login";
     }
 
-    @PostMapping("/login")
-    public String postLoginForm(LoginForm loginForm, Model model){
-        return "";
-    }
+//    @PostMapping("/login")
+//    public String postLoginForm(LoginForm loginForm, Model model){
+//        return "";
+//    }
 }

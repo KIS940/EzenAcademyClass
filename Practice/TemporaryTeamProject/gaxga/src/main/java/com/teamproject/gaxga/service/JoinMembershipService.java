@@ -13,11 +13,9 @@ import org.springframework.stereotype.Service;
 public class JoinMembershipService {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    @Autowired
+    private UserRepository userRepository;
     public void joinPutData(JoinMembershipForm joinMembershipForm) {
 
         // todo : 회원가입시 특수문자 방지
@@ -25,7 +23,6 @@ public class JoinMembershipService {
         if (isUser) {
             return;
         }
-
         User data = new User();
 
         data.setGaId(joinMembershipForm.getGaId());
@@ -37,7 +34,6 @@ public class JoinMembershipService {
         data.setGaEmail(joinMembershipForm.getGaEmail());
         // todo : 나중에 프로필이미지 디폴트로 넣기
         data.setGaP_Image(joinMembershipForm.getGaP_Image());
-        log.info("=====dataId : " + data.getGaId());
         userRepository.save(data);
     }
 }

@@ -21,15 +21,10 @@ public class UserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("findByUsername: "+ userRepository.findByGaId("asdf")+" ==존재하는지 확인" + userRepository.existsByGaId("asdf"));
-        log.info("============username1 : " + username);
-
         User userData = userRepository.findByGaId(username);
-        log.info("============username2 : " + userData.getGaId());
         if (userData != null) {
             return new UserDetail(userData);
         }
-
         return null;
     }
 }

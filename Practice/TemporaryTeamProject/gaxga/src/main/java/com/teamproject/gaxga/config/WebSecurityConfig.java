@@ -37,7 +37,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/css/**", "/js/**", "/images/**",
                                 "/fonts/**", "/login", "/joinMembership",
-                                "/joinMembership/create", "/main.html").permitAll());
+                                "/joinMembership/create", "/main.html", "/myPage.html").permitAll());
         http
                 .formLogin((auth) -> auth.loginPage("/login")
                         .loginProcessingUrl("/login")

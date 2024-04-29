@@ -1,6 +1,7 @@
 package com.teamproject.gaxga.controller;
 
 import com.teamproject.gaxga.dto.JoinMembershipForm;
+import com.teamproject.gaxga.entity.User;
 import com.teamproject.gaxga.repository.UserRepository;
 import com.teamproject.gaxga.service.JoinMembershipService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ public class JoinMembershipController {
     @Autowired
     private JoinMembershipService joinMembershipService;
 
+
     @GetMapping("/joinMembership")
     public String showJoinMembership(){
         return "accountManagement/joinMembership";
@@ -26,14 +28,6 @@ public class JoinMembershipController {
     public String createJoinMembership(JoinMembershipForm joinMembershipForm, Model model){
         log.info("======joinMembershipForm={}", joinMembershipForm);
         joinMembershipService.joinPutData(joinMembershipForm);
-        return "redirect:accountManagement/login";
-    }
-
-    @GetMapping("/joinMembership/create/result")
-    public String resultCreate(@PathVariable Long id, Model model){
-        log.info("==========id: " + id);
-        log.info("==========model: " + model.toString());
-
-        return "";
+        return "accountManagement/login";
     }
 }
