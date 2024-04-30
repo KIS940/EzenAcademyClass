@@ -1,19 +1,26 @@
 package com.teamproject.gaxga.entity;
 
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
-
+@Slf4j
+@Getter
 public class UserDetail implements UserDetails {
 
     private User user;
     public UserDetail(User user) {
         this.user = user;
+        log.info("=========1" + user.getGaP_Image());
     }
-
+    public String getGaPImage(){
+        log.info("=========2" + user.getGaP_Image());
+        return user.getGaP_Image();
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();

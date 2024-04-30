@@ -2,11 +2,6 @@ package com.teamproject.gaxga.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -23,7 +18,7 @@ public class Gabowatdago extends BaseEntity {
     @Column
     private String local;
     @Column
-    private String tema;
+    private String thema;
     @Column
     private String image;
     @Column
@@ -32,4 +27,30 @@ public class Gabowatdago extends BaseEntity {
     private String address;
     @Column
     private String de_address;
+    @Column
+    private String lat;
+    @Column
+    private String lng;
+
+    //수정할 내용이 있는 경우에만 동작하는 메서드
+    public void patch(Gabowatdago gabowatdago) {
+        if(gabowatdago.title != null)
+            this.title = gabowatdago.title;
+        if(gabowatdago.local != null)
+            this.local = gabowatdago.local;
+        if (gabowatdago.thema != null)
+            this.thema = gabowatdago.thema;
+        if (gabowatdago.image != null)
+            this.image = gabowatdago.image;
+        if (gabowatdago.content != null)
+            this.content = gabowatdago.content;
+        if (gabowatdago.address != null)
+            this.address = gabowatdago.address;
+        if (gabowatdago.de_address != null)
+            this.de_address = gabowatdago.de_address;
+        if (gabowatdago.lat != null)
+            this.lat = gabowatdago.lat;
+        if (gabowatdago.lng != null)
+            this.lng = gabowatdago.lng;
+    }
 }

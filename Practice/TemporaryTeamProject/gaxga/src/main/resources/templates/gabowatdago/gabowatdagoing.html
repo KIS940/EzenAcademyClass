@@ -1,5 +1,6 @@
 <div th:include="layouts/header"></div>
 <link rel="stylesheet" th:href="@{/css/post_result_.css}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <div th:object="${gabowatdago}">
     <div class="Waarea">
@@ -102,6 +103,8 @@
       <div class="Waright">
         <div class="post-result">
           <div class="title-box" style="height: 15%">
+            <input type="hidden" id="latitude" th:value="*{lat}">
+            <input type="hidden" id="longitude" th:value="*{lng}">
             <div class="post-title" th:text="*{title}"></div>
           </div>
           <div class="intro-area">
@@ -127,9 +130,9 @@
                 이 게시글은 명에게 추천받았습니다.
               </div>
               <div>
-                <input type="button" value="목록 보기" style="width: 15%" onclick="window.location.href='/gabowatdago'">
-                <a th:href="@{'/gabowatdago/' + ${id} + '/edit'}"><input type="button" value="수정" ></a>
-                <a th:href="@{'/gabowatdago/' + ${id} + '/delete'}"><input type="button" value="삭제"></a>
+                <input type="button" class="btn btn-outline-success" value="목록 보기" style="width: 15%; line-height: 0.6;" onclick="window.location.href='/gabowatdago'">
+                <a th:href="@{'/gabowatdago/' + ${id} + '/edit'}"><input type="button" value="수정" style="line-height: 0.6;" class="btn btn-outline-success"></a>
+                <a th:href="@{'/gabowatdago/' + ${id} + '/delete'}"><input type="button" value="삭제" style="line-height: 0.6;" class="btn btn-outline-danger" onclick="delOk()" ></a>
               </div>
             </div>
           </div>
@@ -144,6 +147,7 @@
                 </div>
             </div>
             </div>
+            <button type="button" id="test">클릭테스트</button>
             <div class="text-box" th:text="*{content}">
             </div>
                <h3>여행지 주소</h3><br>
@@ -155,16 +159,46 @@
               <div class="input-box">
               <form class="comment-input">
                 <input style ="width: 20%;" id="client" type ="text" maxlength="10" placeholder="닉네임">
-                <input style ="width: 80%;" id="comment" type ="text" placeholder="작성자에게 댓글을 남겨주세요">
+                <textarea style ="width: 80%;" id="comment" type ="text" placeholder="작성자에게 댓글을 남겨주세요"></textarea>
+                <input type="hidden" id="new-comment-gabowatdago_id" th:value="*{id}">
                 <input id="comment-save" type="submit" value="댓글 작성">
               </form>
               </div>
-                <div class="comment-list">
-                </div>
               <div class="comment-list-box">
-              <!-- <ul class="comment-list">
-              </ul> -->
-            </div>
+                <div class="card" th:each="cmt :${cmtDtos}" style="margin: 10px">
+                  <h5 class="card-header"  style="display: flex;">
+                    <span th:text="${cmt.nickname}"></span>
+                    <div>
+                      <!-- Button trigger modal -->
+                      <button type="button"
+                              style="line-height: 0.5;"
+                              id="updateBtn"
+                              class="btn btn-outline-success"
+                              data-bs-toggle="modal"
+                              th:data-bs-target="${cmt.id}"
+                              >수정</button>
+                    <button type="button" style="line-height: 0.5;" class="btn btn-outline-danger" id="deleteBtn"
+                            th:data-comment-id="${cmt.id}">삭제</button>
+                    </div>
+                  </h5>
+                  <div class="card-body">
+                    <p class="card-title" th:text="${cmt.body}"></p>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" th:id="${cmt.id}" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
           </div>
       </div>
       </div>
@@ -172,45 +206,8 @@
       </div>
     </div>
   </div>
-</div>
-<script th:src="@{/js/post_result.js}"></script>
 <script th:src="@{'//dapi.kakao.com/v2/maps/sdk.js?appkey=6d7e2f086ffa97eb8f4b35fa8cc12439&libraries=services'}"></script>
-<script>
-    // 지도를 표시할 div 요소
-    var mapContainer = document.getElementById('maps');
-
-    // URL에서 폼 데이터로 전달된 좌표 값을 가져오는 함수
-    function getCoordinatesFromFormData() {
-        var latitudeInput = document.getElementById('latitude');
-        var longitudeInput = document.getElementById('longitude');
-
-        var latitude = parseFloat(latitudeInput.value);
-        var longitude = parseFloat(longitudeInput.value);
-
-        return { latitude: latitude, longitude: longitude };
-    }
-
-    // 폼 데이터로부터 좌표 값을 가져옴
-    var coordinates = getCoordinatesFromFormData();
-
-    // 좌표로 지도를 생성하고 마커 표시
-    var map = new daum.maps.Map(mapContainer, {
-        center: new daum.maps.LatLng(coordinates.latitude, coordinates.longitude),
-        level: 3 // 지도의 확대 레벨
-    });
-
-    var markerPosition = new daum.maps.LatLng(coordinates.latitude, coordinates.longitude);
-
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        position: markerPosition
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-</script>
-
-<script src="../js/menu.js"></script>
-
+<script th:src="@{/js/post_result.js}"></script>
+<script th:src="@{/js/menu.js}"></script>
 </body>
 </html>

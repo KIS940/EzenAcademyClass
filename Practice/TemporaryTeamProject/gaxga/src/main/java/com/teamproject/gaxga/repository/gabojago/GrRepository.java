@@ -9,4 +9,5 @@ import java.util.List;
 public interface GrRepository extends JpaRepository<GR, Long> {
     @Query("SELECT name FROM GR")
     List<String> findAllNames();
+
 }

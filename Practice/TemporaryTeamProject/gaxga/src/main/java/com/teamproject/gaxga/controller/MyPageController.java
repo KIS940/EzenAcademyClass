@@ -15,8 +15,8 @@ public class MyPageController {
 
     @GetMapping("/myPage")
     public String showMyPage(Model model){
-        JoinMembershipForm userInfo = joinMembershipService.findUserInfo();
-        model.addAttribute("userInfo", userInfo);
+//        JoinMembershipForm userInfo = joinMembershipService.findUserInfo();
+//        model.addAttribute("userInfo", userInfo);
         return "accountManagement/myPage";
     }
 }

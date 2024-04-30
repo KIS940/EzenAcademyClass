@@ -4,8 +4,8 @@ html{
 
 
 *{
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 video {
@@ -13,16 +13,17 @@ video {
   top : 0;
   left: 0;
   width : 100%;
-  /* height: 100vh; */
+  height: 100%;
   object-fit : cover;
   z-index: 0;
 }
+
 .video-container {
-  /* position: relative; */
-  width : 100%;
-  height : 100vh;
-  overflow : hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
 }
+
 
 .page {
   width: 100%;
@@ -30,6 +31,7 @@ video {
   position: relative;
   background-color: black;
 }
+
 .page #insertP {
   width: 1300px;
   font-family: 'GmarketSans';
@@ -38,17 +40,18 @@ video {
   color: white;
   text-shadow: 0px 5px 8px rgb(53, 49, 49);
 }
-.slide-in-out-text1 {
+.goText{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: lightSpeedInLeft 1s ease-out;
+  text-align: center;
+  /*animation: lightSpeedInLeft 5s ease-out;*/
 }
 
 @keyframes lightSpeedInLeft {
   0% {
-    transform: translate(150%,-50%);
+    transform: translate(50%,-50%);
     opacity: 0;
   }
   50% {
@@ -56,7 +59,7 @@ video {
     opacity: 1;
   }
   100% {
-    transform: translate(-150%,-50%); /* 요소를 오른쪽으로 이동하는 키프레임 추가 */
+    transform: translate(-100%,-50%); /* 요소를 오른쪽으로 이동하는 키프레임 추가 */
     opacity: 0;
   }
 }
@@ -69,14 +72,16 @@ video {
 
 .page #pageinfo1{
   padding-top: 150px;
+  padding-left: 150px;
   float: left;
   width: 647px;
   height: 345px;
 }
+
 .page #pageImg1{
   padding-top: 120px;
+  padding-right: 150px;
   float: left;
-  width: 50%;
   width: 611px;
   height: 730px;
 }
@@ -86,6 +91,7 @@ video {
   object-fit: fill;
   border-radius: 20px;
 }
+
 
 .page #bar1{
   width: 875px;
@@ -166,7 +172,7 @@ video {
 
 @keyframes slideIn3 {
   from{
-    top: 800px;
+    top: 900px;
     opacity: 0;
   }
   to{
@@ -177,14 +183,14 @@ video {
 
 .page .contentBar4 {
   position: absolute;
-  animation: slideIn4 1.3s ease;
+  animation: slideIn4 1.2s ease;
   top: 724px;
   left: 1620px;
 }
 
 @keyframes slideIn4 {
   from{
-    top: 800px;
+    top: 900px;
     opacity: 0;
   }
   to{
@@ -195,12 +201,12 @@ video {
 
 
 .p1-slide5{
-  animation: slideIn5 1.3s ease;
+  animation: slideIn5 1.5s ease;
 }
 
 @keyframes slideIn5 {
   from {
-    transform: translate(-30%, 0.2%);
+    transform: translate(0.2%, -20%);
     opacity: 0;
   }
   to {
@@ -231,7 +237,7 @@ video {
   position: absolute;
   top : 600px;
   right: 0;
-  animation: slideIn7 1.5s ease;
+  animation: slideIn7 1.2s ease;
 }
 
 @keyframes slideIn7 {
@@ -287,7 +293,8 @@ video {
   font-size: 25px;
   color: #FFFFFF;
   float: left;
-  margin-left: 24px;
+  margin-left: 120px;
+  margin-top: 25px;
 }
 .page #imgInfo1 p{
   width: 334px;
@@ -305,12 +312,12 @@ video {
   color: white;
 }
 
-.slide-out-in-text2 {
+.comeText {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: slideOutIn 4s ease-out infinite;
+  /*animation: slideOutIn 4s ease-out infinite;*/
 }
 
 @keyframes slideOutIn {
@@ -337,7 +344,6 @@ video {
   padding-top: 120px;
   padding-left: 150px;
   float: right;
-  width: 50%;
   width: 611px;
   height: 730px;
 }
@@ -352,29 +358,96 @@ video {
   padding-right: 150px;
   text-align: right;
   float: right;
-  width: 50%;
   width: 660px;
   height: 345px;
 }
 
-.page .contentBar2{
+
+.page .contentBar5 {
   position: absolute;
+  animation: slideIn25 1s ease;
+  top: 60px;
+  right: 110px;
 }
+
+@keyframes slideIn25 {
+  from{
+    right: 20px;
+    opacity: 0;
+  }
+  to{
+    right: 110px;
+    opacity: 1;
+  }
+}
+
+
+.page .contentBar6 {
+  position: absolute;
+  animation: slideIn26 1.5s ease;
+  top: 80px;
+  right: 110px;
+}
+
+@keyframes slideIn26 {
+  from{
+    right: 20px;
+    opacity: 0;
+  }
+  to{
+    right: 110px;
+    opacity: 1;
+  }
+}
+
+
+.page .contentBar7 {
+  position: absolute;
+  animation: slideIn27 1s ease;
+  top: 700px;
+  right: 1620px;
+}
+
+@keyframes slideIn27 {
+  from{
+    top: 950px;
+    opacity: 0;
+  }
+  to{
+    top: 700px;
+    opacity: 1;
+  }
+}
+
+.page .contentBar8 {
+  position: absolute;
+  animation: slideIn28 0.8s ease;
+  top: 724px;
+  right: 1620px;
+}
+
+@keyframes slideIn28 {
+  from{
+    top: 950px;
+    opacity: 0;
+  }
+  to{
+    top: 724px;
+    opacity: 1;
+  }
+}
+
 
 .page #bar5{
   width: 875px;
   height: 12px;
   background-color: #A8C9FF;
-  top: 60px;
-  right: 110px;
   border-radius: 3px;
 }
 .page #bar6{
   width: 765px;
   height: 7px;
   background-color: #5284C3;
-  top: 80px;
-  right: 110px;;
   border-radius: 3px;
 
 }
@@ -383,8 +456,6 @@ video {
   height: 10px;
   background-color: #A8C9FF;
   border-radius: 3px;
-  top: 700px;
-  right: 1580px;
   transform: rotate(90deg);
 
 }
@@ -393,8 +464,6 @@ video {
   height: 7px;
   background-color: #5284C3;
   border-radius: 3px;
-  top: 724px;
-  right: 1620px;
   transform: rotate(90deg);
 }
 .page #pageinfo2 p{
@@ -413,9 +482,6 @@ video {
 }
 .page #GaInfo2{
   margin-right:600px;
-  position: absolute;
-  top : 600px;
-  right: 250px;
 
 }
 .page #GaInfo2 p{
@@ -434,13 +500,72 @@ video {
   line-height: 120%;
   color: #BDE3FF;
 }
+
+
+
+.p2-slide5{
+  animation: slideIn25 1.5s ease;
+}
+
+@keyframes slideIn25 {
+  0% {
+    transform: translate(-25%, 0.2%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0.2%, 0.2%);
+    opacity: 1;
+  }
+}
+
+
+.p2-slide6{
+  animation: slideIn26 1.5s ease;
+}
+
+@keyframes slideIn26 {
+  00% {
+    transform: translate(0.2%, -20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0.2%, 0.2%);
+    opacity: 1;
+  }
+}
+
+
+
+
+.p2-slide7{
+  position: absolute;
+  top : 600px;
+  right: 0;
+  animation: slideIn27 1.2s ease;
+}
+
+
+@keyframes slideIn27 {
+  0% {
+    top: 1080px;
+    opacity: 0;
+  }
+  100% {
+    top : 600px;
+    opacity: 1;
+  }
+}
+
+
+
 .page #imgInfo2 {
   font-family: 'GmarketSans';
   font-weight: 400;
   font-size: 25px;
   color: #FFFFFF;
   float: right;
-  margin-right: 24px;
+  margin-right: 120px;
+  margin-top: 25px;
 }
 .page #imgInfo2 p{
   width: 334px;
@@ -449,8 +574,10 @@ video {
   right: 90px;
 }
 
-footer{
+footer .page{
   background-color: #063F3B;
+  width : 100%;
+  height : 100%
 }
 
 footer #top{
@@ -475,57 +602,22 @@ footer #policy2 a{
   font-weight: 400;
 }
 
-footer #footerImg{
+.page #footerImg{
   width: 100%;
-  height: 100%;
 }
-footer #backtop{
+footer Img{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+footer #backTop{
   text-align: right;
   font-family: 'DMSerif';
   font-weight: 400;
 }
-footer #backtop a{
+footer #top a{
   color: #CDCBCB;
   text-decoration-line: none;
 }
-footer Img{
-  width: 100%;
-  height: 100%;
-  position: relative;
-  bottom: 0;
-  justify-content: center;
-}
 
-#area-No2-3{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 10vh;
-}
-#icons{
-  display: flex;
-  align-items: end;
-  list-style: none;
-  padding-left: 0;
-  font-size: 30px;
-  padding: 8px 12px;
-  color: #fff;
-  width: 100%;
-  justify-content: end;
-}
-#icons a{
-  color: #fff;
-}
-#icons a:hover {
-  color: #063F3B;
-}
-#icons li {
-  margin: 4px 6px;
-}
-
-@media (max-width: 770px) {
-  #pageNameGabojago a {
-
-    font-size: 70px;
-  }
-}

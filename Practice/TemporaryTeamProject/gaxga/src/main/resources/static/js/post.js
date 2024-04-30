@@ -1,4 +1,11 @@
-
+// 날짜 스크립트
+var today = new Date();
+const date = document.querySelector(".date");
+var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+var dateString = year + '-' + month + '-' + day;
+date.innerText = `${dateString}`;
 
 
 //----------------------------------------------------------------------지도
@@ -6,7 +13,7 @@
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
+        level: 3 // 지도의 확대 레벨
     };
 
 var map = new daum.maps.Map(mapContainer, mapOption);
@@ -45,6 +52,14 @@ function sample5_execDaumPostcode() {
                     // 마커를 결과값으로 받은 위치로 옮긴다.
                     marker.setPosition(coords)
 
+                    //폼 작성 시 위도 경도 데이터 보낼 변수 선언
+                    var lat = result.x;
+                    var lng = result.y;
+                    console.log(lat);
+                    console.log(lng);
+
+                    document.getElementById("latitude").value = lat;
+                    document.getElementById("longitude").value = lng;
                 }
                 // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
                 if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
@@ -70,7 +85,6 @@ function sample5_execDaumPostcode() {
         }
 
     }).open();
-
 }
 
 // 좌표 값을 hidden input에 넣는다.
@@ -78,7 +92,6 @@ document.getElementById("latitude").value = result.y;
 document.getElementById("longitude").value = result.x;
 
 
-// 날짜 스크립트
 
 
 

@@ -41,8 +41,8 @@ public class JoinMembershipService {
         return true;
     }
 
-    public JoinMembershipForm findUserInfo() {
-        User data = userRepository.findByGaId();
-        List<JoinMembershipForm> userInfoList = new ArrayList<>();
-    }
+//    public JoinMembershipForm findUserInfo() {
+//        User data = userRepository.findByGaId();
+//        List<JoinMembershipForm> userInfoList = new ArrayList<>();
+//    }
 }
