@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -37,7 +38,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/css/**", "/js/**", "/images/**",
                                 "/fonts/**", "/login", "/joinMembership",
-                                "/joinMembership/create", "/main", "/myPage.html").permitAll()
+                                "/joinMembership/create", "main/main2", "/myPage.html").permitAll()
                         .anyRequest().authenticated()); // todo. 임시로 로그인 후에는 모든 요청에 접근을 허용하게 했으나 나중에 로그인 후에 보여줄거 같은거 수정필요
         http
                 .formLogin((auth) -> auth.loginPage("/login")
@@ -45,9 +46,15 @@ public class WebSecurityConfig {
                         .usernameParameter("gaId")
                         .passwordParameter("gaPass")
                         .permitAll()
-                        .defaultSuccessUrl("/main", true)
+                        .defaultSuccessUrl("/main2", true)
                 );
-
+        http
+                .logout((logout) -> logout
+                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                // 성공하면 루트 페이지로 이동
+                .logoutSuccessUrl("/main2")
+                // 로그아웃 시 생성된 사용자 세션 삭제
+                .invalidateHttpSession(true));
         http
                 .csrf((auth) -> auth.disable());
 

@@ -15,8 +15,8 @@
                 <ul>
                     <li>
                         <div>
-                            <img src="../img/profile1.png" alt="">
-                            <p>홍길동 님</p>
+                            <img th:src="${userDetail.getGaPImage()}" alt="">
+                            <p th:text="${userDetail.getGaNick()}">홍길동 님</p>
                         </div>
                     </li>
                     <li><button onclick="SelectedContent(0)">프로필 정보 수정</button></li>
@@ -25,7 +25,7 @@
                     <li><button onclick="SelectedContent(3)" id="lastBtn">여행지 장바구니</button></li>
                 </ul>
                 <div id="logoutBtn">
-                    <button>로그아웃</button>
+                    <a href="/user/logout"><button>로그아웃</button>
                 </div>
             </aside>
             <section id="rightContent">
@@ -33,7 +33,7 @@
                 <div id="top" class="content">
                     <div id="modifyProfile" class="selectedArea active">
                         <div id="profileImage">
-                            <img src="../img/profile1.png" alt="프로필 이미지">
+                            <img th:src="${userDetail.getGaPImage()}" alt="프로필 이미지">
                             <button>프로필 사진 변경</button>
                         </div>
                         <div id="modify">
@@ -45,28 +45,28 @@
                                 <ul>
                                     <li>
                                         <label for="nickname">닉네임</label>
-                                        <span id="showNickname">Nickname</span>
+                                        <span id="showNickname" th:text="${userDetail.getGaNick()}">Nickname</span>
                                         <input type="text" id="nickname" class="hidden" placeholder="변경할 닉네임을 입력하세요 (4~12글자)" maxlength="12" minlength="4">
                                         <button type="button" id="modifyNickname" onclick="ModifyProfileBtn(0)"><i class="fa-solid fa-pen"></i></button>
                                         <button id="nicknameBtn" class="hidden">저장</button>
                                     </li>
                                     <li>
                                         <label for="phoneNumber">전화번호</label>
-                                        <span id="showPhoneNumber">010-0000-0000</span>
+                                        <span id="showPhoneNumber" th:text="${userDetail.getGaPhone()}">010-0000-0000</span>
                                         <input type="text" id="phoneNumber" class="hidden" placeholder="변경할 전화번호를 입력하세요">
                                         <button type="button" id="modifyPhoneNumber" onclick="ModifyProfileBtn(1)"><i class="fa-solid fa-pen"></i></button>
                                         <button id="phoneNumberBtn" class="hidden">저장</button>
                                     </li>
                                     <li>
                                         <label for="address">주소</label>
-                                        <span id="showAddress">xx시 xx구 xx동</span>
+                                        <span id="showAddress" th:text="${userDetail.getGaAddress()}">xx시 xx구 xx동</span>
                                         <input type="text" id="address" class="hidden" placeholder="변경할 주소를 입력하세요">
                                         <button type="button" id="modifyAddress" onclick="ModifyProfileBtn(2)"><i class="fa-solid fa-pen"></i></button>
                                         <button id="addressBtn" class="hidden">저장</button>
                                     </li>
                                     <li>
                                         <label for="email">이메일</label>
-                                        <span id="showEmail">abcdefg@gmail.com</span>
+                                        <span id="showEmail" th:text="${userDetail.getGaEmail()}">abcdefg@gmail.com</span>
                                         <input type="email" id="email" class="hidden" placeholder="변경할 이메일을 입력하세요">
                                         <button type="button" id="modifyEmail" onclick="ModifyProfileBtn(3)"><i class="fa-solid fa-pen"></i></button>
                                         <button id="emailBtn" class="hidden">저장</button>
