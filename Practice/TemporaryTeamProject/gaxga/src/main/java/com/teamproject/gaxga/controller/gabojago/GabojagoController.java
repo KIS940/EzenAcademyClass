@@ -68,7 +68,7 @@ public class GabojagoController {
         model.addAttribute("Jeju", Jeju);
         model.addAttribute("Chungnam", Chungnam);
         model.addAttribute("Chungbuk", Chungbuk);
-        return "gabojago/gabojago";
+        return "public/gabojago/gabojago";
     }
 }
 

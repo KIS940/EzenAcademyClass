@@ -3,6 +3,8 @@ package com.teamproject.gaxga.controller;
 import com.teamproject.gaxga.dto.GabowatdagoForm;
 import com.teamproject.gaxga.entity.Gabowatdago;
 import com.teamproject.gaxga.repository.GabowatdagoRepository;
+import com.teamproject.gaxga.repository.gabojago.GrRepository;
+import com.teamproject.gaxga.repository.gabojago.GtRepository;
 import com.teamproject.gaxga.service.GabowatdagoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,14 @@ public class GabowatdagoController {
     private GabowatdagoRepository gabowatdagoRepository;
     @Autowired
     private GabowatdagoService gabowatdagoService;
+    @Autowired
+    private GrRepository grRepository;
+    @Autowired
+    private GtRepository gtRepository;
     @GetMapping("/gabowatdagoing_p")
-    public String newForm(){
-        return "/gabowatdago/gabowatdagoing_p";
+    public String newForm(Model model){
+     return gabowatdagoService.newForm(model);
     }
-
     @PostMapping("/gabowatdago/create")
     public String create(GabowatdagoForm form) {
         return gabowatdagoService.create(form);

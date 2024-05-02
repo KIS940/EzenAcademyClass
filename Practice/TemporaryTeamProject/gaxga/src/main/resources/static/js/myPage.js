@@ -35,6 +35,36 @@ function ModifyProfileBtn(btnType) {
   }
 }
 
-function SaveBtn(btnType){
-
+function modifySaveBtn(btnType) {
+  const inputElement = document.getElementById(modifyType[btnType]);
+  const newText = inputElement.value;
+  console.log(newText);
+  fetch("/api/myPage",{
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      type: modifyType[btnType],
+      text: newText
+    })
+  })
+      .then(response => {
+        if(!response.ok){
+          throw new Error("수정에 실패 햇습니다.");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const spanElement = document.getElementById(profileInfos[btnType]);
+        spanElement.textContent = newValue; // 화면에 수정된 값 업데이트
+        spanElement.classList.remove("hidden");
+        inputElement.classList.add("hidden");
+        document.getElementById(saveBtn[btnType]).classList.add("hidden");
+        document.getElementById(modifyBtn[btnType]).classList.remove("hidden");
+        console.log("프로필이 성공적으로 수정되었습니다.");
+      })
+      .catch(error => {
+        console.error("프로필 수정에 실패했습니다.", error);
+      });
 }
