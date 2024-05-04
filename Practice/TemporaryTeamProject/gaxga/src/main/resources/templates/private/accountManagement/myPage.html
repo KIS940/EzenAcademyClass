@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/myPaga.css">
+    <title>GAXGA_MYPAGE</title>
+</head>
+<body>
+<div id="container">
+    <div id="myPage_main">
+        <div id="contents">
+            <aside id="leftContent">
+                <ul>
+                    <li>
+                        <div>
+                            <img th:src="${userDetail.getGaPImage()}" alt="">
+                            <p th:text="${userDetail.getGaNick()}">홍길동 님</p>
+                        </div>
+                    </li>
+                    <li><button onclick="SelectedContent(0)">프로필 정보 수정</button></li>
+                    <li><button onclick="SelectedContent(1)">나의 작성글</button></li>
+                    <li><button onclick="SelectedContent(2)">나의 베스트 게시글</button></li>
+                    <li><button onclick="SelectedContent(3)" id="lastBtn">여행지 장바구니</button></li>
+                </ul>
+                <div id="logoutBtn">
+                   <button> <a href="/user/logout">로그아웃</a></button>
+                </div>
+            </aside>
+            <section id="rightContent">
+                <div id="subHeader"></div>
+                <div id="top" class="content">
+                    <div id="modifyProfile" class="selectedArea active">
+                        <div id="profileImage">
+                            <img th:src="${userDetail.getGaPImage()}" alt="프로필 이미지">
+                            <button>프로필 사진 변경</button>
+                        </div>
+                        <div id="modify">
+                            <p>정보 수정</p>
+                        </div>
+                        <!-- 프로필정보 수정부분에서 보여지는부분 하고 수정시 어떻게 보일지 생각필요 우선 임시로 작업 -->
+                        <div id="profileInfo">
+                            <form action="">
+                                <ul>
+                                    <li>
+                                        <label for="nickname">닉네임</label>
+                                        <span id="showNickname" th:text="${userDetail.getGaNick()}">Nickname</span>
+                                        <input type="text" id="nickname" class="hidden" placeholder="변경할 닉네임을 입력하세요 (4~12글자)" maxlength="12" minlength="4">
+                                        <button type="button" id="modifyNickname" onclick="ModifyProfileBtn(0)"><i class="fa-solid fa-pen"></i></button>
+                                        <button id="nicknameBtn" class="hidden" onclick="modifySaveBtn(0)">저장</button>
+                                    </li>
+                                    <li>
+                                        <label for="phoneNumber">전화번호</label>
+                                        <span id="showPhoneNumber" th:text="${userDetail.getGaPhone()}">010-0000-0000</span>
+                                        <input type="text" id="phoneNumber" class="hidden" placeholder="변경할 전화번호를 입력하세요">
+                                        <button type="button" id="modifyPhoneNumber" onclick="ModifyProfileBtn(1)"><i class="fa-solid fa-pen"></i></button>
+                                        <button id="phoneNumberBtn" class="hidden" onclick="modifySaveBtn(1)">저장</button>
+                                    </li>
+                                    <li>
+                                        <label for="address">주소</label>
+                                        <span id="showAddress" th:text="${userDetail.getGaAddress()}">xx시 xx구 xx동</span>
+                                        <input type="text" id="address" class="hidden" placeholder="변경할 주소를 입력하세요">
+                                        <button type="button" id="modifyAddress" onclick="ModifyProfileBtn(2)"><i class="fa-solid fa-pen"></i></button>
+                                        <button id="addressBtn" class="hidden" onclick="modifySaveBtn(2)">저장</button>
+                                    </li>
+                                    <li>
+                                        <label for="email">이메일</label>
+                                        <span id="showEmail" th:text="${userDetail.getGaEmail()}">abcdefg@gmail.com</span>
+                                        <input type="email" id="email" class="hidden" placeholder="변경할 이메일을 입력하세요">
+                                        <button type="button" id="modifyEmail" onclick="ModifyProfileBtn(3)"><i class="fa-solid fa-pen"></i></button>
+                                        <button id="emailBtn" class="hidden" onclick="modifySaveBtn(3)">저장</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="myWrited" class="selectedArea">
+                        <div id="myWritedArea">
+                            <div class="myWritedList">
+                                <p><a href="">용인 한옥마을에서 한복 체험!</a></p>
+                                <span>2024-03-15</span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="myWritedList">
+                                <p><a href="">남편과 남이섬 여행기^^</a></p>
+                                <span>2024-02-18</span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="myWritedList">
+                                <p><a href="">안산 대부도 고양이 실외 테마카페 방문 후기</a></p>
+                                <span>2024-01-24</span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="myWritedList">
+                                <p><a href="">인천 청량산 새해맞이 등반완료!</a></p>
+                                <span>2024-01-02</span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                        </div>
+                        <div id="myWritedPageList">
+                            <button>&lt;</button>
+                            <button>1</button>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                    <!-- 베스트글 -->
+                    <div id="saved" class="selectedArea">
+                        <div id="savedListArea">
+                            <div class="savedList">
+                                <p><a href="">용인 한옥마을에서 한복 체험!</a></p>
+                                <span>2024-03-15</span>
+                                <span>추천<em>28</em></span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="savedList">
+                                <p><a href="">남편과 남이섬 여행기^^</a></p>
+                                <span>2024-02-18</span>
+                                <span>추천<em>25</em></span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="savedList">
+                                <p><a href="">안산 대부도 고양이 실외 테마카페 방문 후기</a></p>
+                                <span>2024-01-24</span>
+                                <span>추천<em>20</em></span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                            <div class="savedList">
+                                <p><a href="">인천 청량산 새해맞이 등반완료!</a></p>
+                                <span>2024-01-02</span>
+                                <span>추천<em>12</em></span>
+                                <button>수정하기</button>
+                                <button>삭제하기</button>
+                            </div>
+                        </div>
+                        <div id="savedPageList">
+                            <button>&lt;</button>
+                            <button>2</button>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                    <!-- 여행지 -->
+                    <div id="receiveLike" class="selectedArea">
+                        <div id="receiveLikeArea">
+                            <div class="receiveLikeList">
+                                <p><a href="">춘천 남이섬</a></p>
+                                <span>2024-03-01</span>
+                                <button>제거</button>
+                            </div>
+                            <div class="receiveLikeList">
+                                <p><a href="">춘천 남이섬</a></p>
+                                <span>2024-03-01</span>
+                                <button>제거</button>
+                            </div>
+                            <div class="receiveLikeList">
+                                <p><a href="">춘천 남이섬</a></p>
+                                <span>2024-03-01</span>
+                                <button>제거</button>
+                            </div>
+                            <div class="receiveLikeList">
+                                <p><a href="">춘천 남이섬</a></p>
+                                <span>2024-03-01</span>
+                                <button>제거</button>
+                            </div>
+                            <div class="receiveLikeList">
+                                <p><a href="">춘천 남이섬</a></p>
+                                <span>2024-03-01</span>
+                                <button>제거</button>
+                            </div>
+                        </div>
+                        <div id="receiveLikePageList">
+                            <button>&lt;</button>
+                            <button>3</button>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="middle" class="content">
+                    <div class="gaga" id="gabo">
+                        <div class="gagaTitle">
+                            <h4>가보자고</h4>
+                        </div>
+                        <p><i class="fa-regular fa-thumbs-up"></i>10</p>
+                        <div class="recentWriting">
+                            <div class="first">
+                                <span>춘천 - 남이섬</span>
+                                <span>2024-03-16</span>
+                            </div>
+                            <div class="second">
+                                <span>춘천 - 남이섬</span>
+                                <span>2024-03-16</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaga" id="gabowa">
+                        <div class="gagaTitle">
+                            <h4>가봤다고</h4>
+                        </div>
+                        <p><i class="fa-regular fa-heart"></i>10</p>
+                        <div class="recentWriting">
+                            <div class="first">
+                                <span>춘천 - 남이섬</span>
+                                <span>2024-03-16</span>
+                            </div>
+                            <div class="second">
+                                <span>춘천 - 남이섬</span>
+                                <span>2024-03-16</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="bottom" class="content">
+                    <div id="firstEvent"class="event">
+                        <img src="../img/진행중 이벤트 최종1.png" alt="">
+                        <span>13xx</span>
+                        <span>zㅣ존***</span>
+                    </div>
+                    <div id="secondEvent"class="event">
+                        <img src="../img/진행중 이벤트 최종2.png" alt="">
+                        <span>13xx</span>
+                        <span>태잉**</span>
+                    </div>
+                    <div id="thirdEvent" class="event">
+                        <img src="../img/진행중 이벤트 최종3.png" alt="">
+                        <span>13xx</span>
+                        <span>해커제****</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/1e9b513c90.js" crossorigin="anonymous"></script>
+<script src="../js/myPage.js"></script>
+</body>
+</html>

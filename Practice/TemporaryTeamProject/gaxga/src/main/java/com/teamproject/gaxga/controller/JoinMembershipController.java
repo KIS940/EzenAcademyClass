@@ -19,10 +19,10 @@ public class JoinMembershipController {
 
     @GetMapping("/joinMembership")
     public String showJoinMembership(){
-        return "accountManagement/joinMembership";
+        return "public/accountManagement/joinMembership";
     }
 
-    @PostMapping("/joinMembership/create")
+    @PostMapping("/joinMembership")
     public String createJoinMembership(JoinMembershipForm joinMembershipForm, Model model){
         log.info("======joinMembershipForm={}", joinMembershipForm);
         if(joinMembershipForm.getGaP_Image() == null)

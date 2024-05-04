@@ -28,17 +28,18 @@ public class WebSecurityConfig {
     @ConditionalOnProperty(name = "spring.h2.console.enabled",havingValue = "true")
     public WebSecurityCustomizer configureH2ConsoleEnable() {
         return web -> web.ignoring()
-                .requestMatchers(PathRequest.toH2Console());
+                .requestMatchers(PathRequest.toH2Console())
+                .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**",
+                        "terms.html", "privacy.html", "copyright.html");
     }
-    
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/css/**", "/js/**", "/images/**",
-                                "/fonts/**", "/login", "/joinMembership",
-                                "/joinMembership/create", "main/main2", "/myPage.html").permitAll()
+                        .requestMatchers("/", "/findInfo","/joinMembership","/main", "/gabojago", "/gabojagoing", "/myPage"
+                                ).permitAll()
                         .anyRequest().authenticated()); // todo. 임시로 로그인 후에는 모든 요청에 접근을 허용하게 했으나 나중에 로그인 후에 보여줄거 같은거 수정필요
         http
                 .formLogin((auth) -> auth.loginPage("/login")
@@ -46,15 +47,13 @@ public class WebSecurityConfig {
                         .usernameParameter("gaId")
                         .passwordParameter("gaPass")
                         .permitAll()
-                        .defaultSuccessUrl("/main2", true)
+                        .defaultSuccessUrl("/main", true)
                 );
         http
                 .logout((logout) -> logout
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                // 성공하면 루트 페이지로 이동
-                .logoutSuccessUrl("/main2")
-                // 로그아웃 시 생성된 사용자 세션 삭제
-                .invalidateHttpSession(true));
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                        .logoutSuccessUrl("/main")
+                        .invalidateHttpSession(true));
         http
                 .csrf((auth) -> auth.disable());
 
