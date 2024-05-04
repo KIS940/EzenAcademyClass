@@ -1,10 +1,13 @@
 package com.example.ajaxPractice.controller;
 
+import com.example.ajaxPractice.dto.AjaxDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AjaxController {
@@ -38,5 +41,59 @@ public class AjaxController {
                        @RequestParam("param2") String param2){
         System.out.println("param1 = " + param1 + ", param2 = " + param2);
         return "ex04메서드 호출 완료";
+    }
+
+    @GetMapping("/ex05")
+    @ResponseBody
+    public AjaxDTO ex05(@ModelAttribute AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        return ajaxDTO;
+    }
+
+    @PostMapping("/ex06")
+    @ResponseBody
+    public AjaxDTO ex06(@ModelAttribute AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        return ajaxDTO;
+    }
+
+    @PostMapping("/ex07")
+    @ResponseBody
+    public  AjaxDTO ex07(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        return ajaxDTO;
+    }
+
+    private List<AjaxDTO> DTOList(){
+        List<AjaxDTO> dtoList = new ArrayList<>();
+        dtoList.add(new AjaxDTO("data1", "data11"));
+        dtoList.add(new AjaxDTO("data2", "data22"));
+        return dtoList;
+    }
+
+    @PostMapping("/ex08")
+    @ResponseBody
+    public List<AjaxDTO> ex08(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        List<AjaxDTO> dtoList = DTOList();
+        dtoList.add(ajaxDTO);
+        return dtoList;
+    }
+
+    @PostMapping("/ex09")
+    // ResponseEntity :body정보뿐만 아니라 header,status 메세지도 같이 넘길수있다. @ResponseBody보다 포괄적이라고 보면됨
+    public ResponseEntity ex09(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        // 클라이언트에 success,error 중 하나로 제어가능
+        //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ajaxDTO, HttpStatus.OK);
+    }
+
+    @PostMapping("/ex10")
+    public ResponseEntity ex10(@RequestBody AjaxDTO ajaxDTO){
+        System.out.println("ajaxDTO : " + ajaxDTO);
+        List<AjaxDTO> dtoList = DTOList();
+        dtoList.add(ajaxDTO);
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 }
