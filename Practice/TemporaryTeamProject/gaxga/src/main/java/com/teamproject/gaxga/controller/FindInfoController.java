@@ -20,25 +20,11 @@ public class FindInfoController {
         return "public/accountManagement/findInfo";
     }
 
-//    @PostMapping("/findInfo")
-//    public String findId(@RequestParam("user_Name") String nick, @RequestParam("userId_PhoneNumber") String phoneNum, Model model) {
-//        log.info("=======nick: {}, phoneNum: {}", nick, phoneNum);
-//        User user = findInfoService.findUserInfo(nick, phoneNum);
-//
-//        if (user != null) {
-//            log.info("=======찾은 정보 userId: {}", user.getGaId());
-//            model.addAttribute("userId","찾은 아이디: " + user.getGaId());
-//            return "redirect:/login";
-//        } else {
-//            log.info("사용자를 찾을 수 없습니다.");
-//            model.addAttribute("userId", "사용자를 찾을 수 없음");
-//            return "redirect:/findInfo";
-//        }
-//    }
 
     @PostMapping("/findInfo/ID")
     @ResponseBody
     public String findId(@RequestBody User user){
+
         return "public/accountManagement/findInfo";
     }
 }

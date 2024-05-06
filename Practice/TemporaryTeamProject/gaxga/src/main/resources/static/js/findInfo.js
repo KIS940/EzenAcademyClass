@@ -15,9 +15,11 @@ const findId = () =>{
         contentType: "application/json",
         success: function (res){
             console.log("성공", res);
+            alert(res);
         },
         error: function(){
             console.log("실패")
+            alert("실패");
         }
     })
 }
