@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/fonts.css}">
     <link rel="stylesheet" th:href="@{css/joinMembership.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>GAXGA_JOINMEMBERSHIP</title>
 </head>
 <body>
@@ -18,14 +19,14 @@
                 <p th:text="${message}"></p>
             </div>
             <h3>Sign Up</h3>
-            <form action="/joinMembership" method="post">
+            <form action="/joinMembership">
                 <div id="form_content">
                     <div id="form_id" class="inputs">
                         <div class="icon">
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="inputInfo">
-                            <input type="text" name="gaId" id="gaId" placeholder="아이디를 입력하세요.(4~12글자)" maxlength="12">
+                            <input type="text" name="gaId" id="gaId" placeholder="아이디를 입력하세요.(4~12글자)" maxlength="12" autocomplete="username">
                             <div class="line"></div>
                         </div>
                     </div>
@@ -34,7 +35,7 @@
                             <i class="fa-solid fa-unlock"></i>
                         </div>
                         <div class="inputInfo">
-                            <input type="password" name="gaPass" id="gaPass" placeholder="비밀번호를 입력하세요.(8~12글자)" maxlength="12">
+                            <input type="password" name="gaPass" id="gaPass" placeholder="비밀번호를 입력하세요.(8~12글자)" maxlength="12" autocomplete="current-password">
                             <div class="line"></div>
                         </div>
                     </div>
@@ -85,13 +86,13 @@
                                 <option value="google.com">google.com</option>
                                 <option value="nate.com">nate.com</option>
                             </select>
-                            <input type="hidden" name="gaEmail" id="combinedInput">
+                            <input type="hidden" name="gaEmail" id="combinedEmail">
                         </div>
                     </div>
                     <input type="hidden" name="gaP_Image" value="/img/maingabwatdago.png">
                 </div>
                 <div id="btn_submit">
-                    <input type="submit" value="확인" class="submit" id="submitBtn">
+                    <input type="button" value="확인" class="submit" id="submitBtn"  onclick="joinState()">
                     <input type="button" value="취소" class="submit">
                 </div>
             </form>

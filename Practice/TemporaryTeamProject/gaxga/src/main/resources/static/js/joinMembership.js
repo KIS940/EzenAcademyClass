@@ -29,6 +29,70 @@ function sample6_execDaumPostcode() {
 document.getElementById("submitBtn").addEventListener("click", function (){
     const userEmail = document.getElementById("userEmail").value;
     const emailType = document.getElementById("emailType").value;
-    document.getElementById("combinedInput").value = userEmail + "@" + emailType;
+    document.getElementById("combinedEmail").value = userEmail + "@" + emailType;
     console.log(userEmail + "@" + emailType);
 });
+
+// 아이디 입력란에서 포커스를 잃을 때 중복 체크 요청을 보냄
+document.getElementById("gaId").addEventListener("blur", function() {
+    const userId = this.value;
+    checkId(userId);
+});
+const checkId = (userId) => {
+    $.ajax({
+        type: "GET",
+        url: "/joinMembership/checkId?userId=" + userId,
+        success: function(response) {
+            if (response === true) {
+                alert("사용 가능한 아이디입니다.");
+            } else {
+                alert("이미 사용 중인 아이디입니다.");
+            }
+        },
+        error: function() {
+            alert("서버 오류가 발생했습니다.");
+        }
+    });
+};
+
+document.getElementById("submitBtn").addEventListener("click", function(event) {
+    // 기본 제출 동작 막기
+    event.preventDefault();
+    // joinState() 함수 호출
+    joinState();
+});
+const joinState = () => {
+    const gaId = document.getElementById("gaId").value;
+    const gaPass = document.getElementById("gaPass").value;
+    const gaNick = document.getElementById("gaNick").value;
+    const gaPhone = document.getElementById("gaPhone").value;
+    const gaAddress = document.getElementById("postal").value;
+    const gaDetailAddress = document.getElementById("detailAddress").value;
+    const combinedEmail = document.getElementById("combinedEmail").value;
+
+    const User = {
+        "gaId" : gaId,
+        "gaPass" : gaPass,
+        "gaNick" : gaNick,
+        "gaPhone" : gaPhone,
+        "gaAddress": gaAddress,
+        "gaDetailAddress": gaDetailAddress,
+        "gaEmail": combinedEmail,
+    }
+
+    $.ajax({
+        type: "post",
+        url: "/joinMembership",
+        data:JSON.stringify(User),
+        contentType: "application/json",
+        success: function (res){
+            console.log("성공", res.gaId + res.gaPass + res.gaNick + res.gaPhone + res.gaAddress + res.gaDetailAddress + res.gaEmail);
+            alert("성공");
+            location.href = "/login";
+        },
+        error: function(){
+            console.log("실패")
+            alert("실패");
+        }
+    })
+}
