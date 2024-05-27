@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="demo"></h1>
+  <script>
+    // 삼항조건 연산자
+
+    function Apple(){
+      document.getElementById("demo").innerHTML = "Apple";
+    }
+    
+    function Tomato(){
+      document.getElementById("demo").innerHTML = "tomato";
+    }
+    
+    let Fruit = false;
+
+    Fruit ? Apple() : Tomato();
+  </script>
+</body>
+</html>

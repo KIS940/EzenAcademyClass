@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var 변수의 유효범위 - function-scoped
+    var foo = "This is String.";
+    if(typeof foo === "string"){
+      var result = true;
+    }else{
+      var result = false;
+    }
+    document.write(result); // result : true
+    // let const 변수의 유효범위 - let, const는 block-scoped
+    var foo = "This is String.";
+    if(typeof foo === "string"){
+      const result2 = true;
+    }else{
+      const result2 = false;
+    }
+    document.write(result2); // result : result is not defined
+  </script>
+</body>
+</html>
